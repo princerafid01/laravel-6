@@ -17,6 +17,11 @@ Route::get('/', function () {
     $data['l'] = User::all();
     return view('welcome', $data);
 });
+Route::get('/pay', 'PayOrderController@store');
+Route::get('channels', 'ChannelController@index');
+Route::get('posts/create', 'PostController@create');
+
+
 Route::get('/scrap', function () {
     $client = new Client();
     $crawler = $client->request('GET', "https://laravel-news.com/");
